@@ -31,3 +31,4 @@ Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes'
 /// ADMIN
 
 Route::get('admin/recipes', [AdminRecipeController::class, 'index'])->name('admin.recipes');
+Route::get('admin/recipe/{id}', [AdminRecipeController::class, 'show'])->name('admin.recipe.page');

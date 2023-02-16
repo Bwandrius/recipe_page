@@ -15,4 +15,12 @@ class RecipeController extends Controller
 
         return view('admin/recipes/index', compact('recipes'));
     }
+
+    public function show($id, Request $request): View
+    {
+        $recipe = Recipe::find($id);
+        $ingredients = $recipe->ingredients;
+
+        return view('admin/recipes/show', compact('recipe', 'ingredients'));
+    }
 }

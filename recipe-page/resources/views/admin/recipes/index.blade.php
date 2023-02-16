@@ -19,7 +19,11 @@
         @foreach($recipes as $recipe)
             <tr>
                 <th scope="row">{{ $recipe->id }}</th>
-                <td>{{ $recipe->name }}</td>
+                <td>
+                    <a class="text-decoration-none" href="{{ route('admin.recipe.page', ['id' => $recipe->id]) }}">
+                        {{ $recipe->name }}
+                    </a>
+                </td>
                 <td>{{ $recipe->category->name }}</td>
                 <td>Image placeholder</td>
                 <td>{{ $recipe->is_active }}</td>
