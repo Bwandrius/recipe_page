@@ -11,7 +11,7 @@ class RecipeController extends Controller
 {
     public function index(Request $request): View
     {
-        $recipes = Recipe::all();
+        $recipes = Recipe::paginate(10);
 
         return view('admin/recipes/index', compact('recipes'));
     }
