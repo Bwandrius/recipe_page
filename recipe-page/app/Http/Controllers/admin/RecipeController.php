@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recipe;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -11,7 +12,7 @@ class RecipeController extends Controller
 {
     public function index(Request $request): View
     {
-        $recipes = Recipe::paginate(10);
+        $recipes = Recipe::withTrashed()->paginate(10);
 
         return view('admin/recipes/index', compact('recipes'));
     }
@@ -28,14 +29,16 @@ class RecipeController extends Controller
         return view('admin/recipes/show', compact('recipe', 'ingredients'));
     }
 
-    public function delete($id): View
+    public function delete($id): RedirectResponse
     {
-        $recipe = Recipe::find($id);
+        $recipe = Recipe::withTrashed()->find($id);
 
+        $recipe->is_active = false; // is_active turbut nereikalingas turint sofDelete
         if($recipe === null) { abort(404); }
 
-        $recipe->felete();
+        $recipe->delete();
+        $recipe->save();
 
-        return view('admin/recipes/index')->with('success', 'recipe deleted');
+        return redirect()->route('admin.recipes')->with('success', 'recipe deleted');
     }
 }

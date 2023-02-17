@@ -15,6 +15,7 @@
             <th scope="col">Ingredients</th>
             <th scope="col">Image</th>
             <th scope="col">Is Active</th>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,14 @@
                 <td>{{$recipe->ingredients->count()}}</td>
                 <td>Image placeholder</td>
                 <td>{{ $recipe->is_active }}</td>
+
+                <td>
+                    <form action="{{ route('admin.recipe.delete', ['id' => $recipe->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>
