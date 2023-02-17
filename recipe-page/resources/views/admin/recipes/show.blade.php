@@ -9,10 +9,10 @@
         <div class="row mt-4">
             <div class="col-12 col-md-6">
                 <div class="card">
-
-{{--                    <img src="{{ asset('path/to/image.jpg') }}" class="card-img-top" alt="Image Description">--}}
-
                     <div class="card-body ">
+
+{{--                        <img src="{{ asset('path/to/image.jpg') }}" class="card-img-top" alt="Image Description">--}}
+
                         <h5 class="card-title">Item 1</h5>
                         <p class="card-text">This is the first item.</p>
                     </div>
