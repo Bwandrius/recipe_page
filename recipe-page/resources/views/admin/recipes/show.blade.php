@@ -1,5 +1,5 @@
 @extends('components/admin_layout')
-@section('title', 'admin-view-recipes')
+@section('title', 'admin-single-recipes')
 @section('content')
 
     <h1>PLACEHOLDER</h1>

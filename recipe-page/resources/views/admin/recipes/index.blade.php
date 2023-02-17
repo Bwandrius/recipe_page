@@ -1,5 +1,5 @@
 @extends('components/admin_layout')
-@section('title', 'admin-view-recipes')
+@section('title', 'admin-all-recipes')
 @section('content')
 
 <h1> AdminRecipeController index</h1>
@@ -15,6 +15,7 @@
             <th scope="col">Ingredients</th>
             <th scope="col">Image</th>
             <th scope="col">Is Active</th>
+            <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -31,6 +32,10 @@
                 <td>{{$recipe->ingredients->count()}}</td>
                 <td>Image placeholder</td>
                 <td>{{ $recipe->is_active }}</td>
+
+                <td>
+                    <a href="{{ route('admin.recipe.edit.get', ['id' => $recipe->id]) }}" class="btn btn-info">Edit</a>
+                </td>
 
                 <td>
                     <form action="{{ route('admin.recipe.delete', ['id' => $recipe->id]) }}" method="post">

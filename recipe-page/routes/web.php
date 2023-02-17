@@ -32,4 +32,8 @@ Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes'
 
 Route::get('admin/recipes', [AdminRecipeController::class, 'index'])->name('admin.recipes');
 Route::get('admin/recipe/{id}', [AdminRecipeController::class, 'show'])->name('admin.recipe.page');
+
+Route::get('admin/recipe/edit/{id}', [AdminRecipeController::class, 'editGet'])->name('admin.recipe.edit.get');
+Route::post('admin/recipe/edit/{id}', [AdminRecipeController::class, 'editPost'])->name('admin.recipe.edit.post');
+
 Route::delete('admin/recipe/delete/{id}', [AdminRecipeController::class, 'delete'])->name('admin.recipe.delete');
