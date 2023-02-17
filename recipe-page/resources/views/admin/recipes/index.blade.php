@@ -4,6 +4,7 @@
 
 <h1> AdminRecipeController index</h1>
 <br>
+@include('components.alert.success_message')
 
 <table class="table table-success table-striped">
     <thead>

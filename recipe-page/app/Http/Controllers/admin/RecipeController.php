@@ -21,6 +21,21 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $ingredients = $recipe->ingredients;
 
+        if ($recipe === null) {
+            abort(404,);
+        }
+
         return view('admin/recipes/show', compact('recipe', 'ingredients'));
+    }
+
+    public function delete($id): View
+    {
+        $recipe = Recipe::find($id);
+
+        if($recipe === null) { abort(404); }
+
+        $recipe->felete();
+
+        return view('admin/recipes/index')->with('success', 'recipe deleted');
     }
 }
