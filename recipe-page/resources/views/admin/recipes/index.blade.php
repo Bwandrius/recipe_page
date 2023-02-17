@@ -11,6 +11,7 @@
             <th scope="col">#</th>
             <th scope="col">Recipe Name</th>
             <th scope="col">Recipe Category</th>
+            <th scope="col">Ingredients</th>
             <th scope="col">Image</th>
             <th scope="col">Is Active</th>
         </tr>
@@ -25,6 +26,7 @@
                     </a>
                 </td>
                 <td>{{ $recipe->category->name }}</td>
+                <td>{{$recipe->ingredients->count()}}</td>
                 <td>Image placeholder</td>
                 <td>{{ $recipe->is_active }}</td>
             </tr>
