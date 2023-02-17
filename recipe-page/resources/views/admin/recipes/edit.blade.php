@@ -21,10 +21,26 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <select name="ingredient_id[]" class="form-control" multiple>
+                @if($recipe->ingredients)
+                    @foreach($recipe->ingredients as $ingredient)
+                        <option class="bg-secondary" value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
+                    @endforeach
+                @endif
+                @foreach($ingredients as $ingredient)
+                        <option  value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" name="description" rows="3">{{ $recipe->description }}</textarea>
         </div>
+        <br>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 

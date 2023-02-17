@@ -12,6 +12,8 @@ class Recipe extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = ['name', 'category_id', 'description', 'ingredients'];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

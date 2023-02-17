@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,8 +35,9 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::find($id);
         $categories = Category::all();
+        $ingredients = Ingredient::all();
 
-        return view('admin/recipes/edit', compact('recipe', 'categories'));
+        return view('admin/recipes/edit', compact('recipe', 'categories', 'ingredients'));
     }
     public function editPost($id, Request $request)
     {
@@ -46,13 +48,32 @@ class RecipeController extends Controller
             abort(404);
         }
 
-        $recipe->name = $request->input('name');
-        $recipe->category_id = $request->input('category_id');
-        $recipe->description = $request->input('description');
+        if($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|min:3|max:50',
+                'category_id' => 'required',
+                'ingredient_id' => 'required|array'
+            ]);
 
-        $recipe->save();
+            $recipe->name = $request->input('name');
+            $recipe->category_id = $request->input('category_id');
+            $recipe->description = $request->input('description');
+            $recipe->save();
 
-        return redirect()->route('admin.recipes')->with('success', 'Recipe updated successfully.');
+            $selectedIngredients = $request->input('ingredient_id', []);
+            $recipe->ingredients()->sync($selectedIngredients);
+
+            return redirect()->route('admin.recipes')->with('success', 'Recipe updated successfully.');
+        }
+
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+
+        return view('admin/recipes/edit', [
+            'recipe' => $recipe,
+            'categories' => $categories,
+            'ingredients' => $ingredients
+        ]);
     }
 
     public function delete($id): RedirectResponse
