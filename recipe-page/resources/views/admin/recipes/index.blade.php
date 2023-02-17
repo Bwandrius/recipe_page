@@ -6,6 +6,13 @@
 <br>
 @include('components.alert.success_message')
 
+<div class="row">
+    <div class="col">
+        <a href="{{ route('admin.recipe.create.get') }}" class="btn btn-success">Create a new Recipe</a>
+    </div>
+</div>
+<br>
+
 <table class="table table-success table-striped">
     <thead>
         <tr>

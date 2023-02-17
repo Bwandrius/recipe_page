@@ -30,6 +30,9 @@ Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes'
 
 /// ADMIN
 
+Route::get('admin/recipe/create', [AdminRecipeController::class, 'createGet'])->name('admin.recipe.create.get');
+Route::post('admin/recipe/create', [AdminRecipeController::class, 'createPost'])->name('admin.recipe.create.post');
+
 Route::get('admin/recipes', [AdminRecipeController::class, 'index'])->name('admin.recipes');
 Route::get('admin/recipe/{id}', [AdminRecipeController::class, 'show'])->name('admin.recipe.page');
 

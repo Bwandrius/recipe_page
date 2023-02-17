@@ -11,6 +11,9 @@
                 <div class="card">
                     <div class="card-body ">
 
+                        @if($recipe->image)
+                            <img class="img-thumbnail" src="{{ asset($recipe->image) }}">
+                        @endif
 {{--                        <img src="{{ asset('path/to/image.jpg') }}" class="card-img-top" alt="Image Description">--}}
 
                         <h5 class="card-title">Item 1</h5>

@@ -9,6 +9,7 @@ use App\Models\Recipe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Validation\Rules\File;
 
 class RecipeController extends Controller
 {
@@ -22,13 +23,47 @@ class RecipeController extends Controller
     public function show($id, Request $request): View
     {
         $recipe = Recipe::find($id);
-        $ingredients = $recipe->ingredients;
 
         if ($recipe === null) {
             abort(404,);
         }
 
+        $ingredients = $recipe->ingredients;
+
         return view('admin/recipes/show', compact('recipe', 'ingredients'));
+    }
+
+    public function createGet(): View
+    {
+        $recipes = Recipe::all();
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
+
+        return view('admin/recipes/create', compact('recipes', 'categories', 'ingredients'));
+    }
+    public function createPost(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'category_id' => 'required',
+            'ingredient_id' => 'required',
+            'image' => ['required', File::image()->max(12 * 1024)],
+        ]);
+
+        $recipe = Recipe::create($request->all());
+
+
+        $file = $request->file('image');
+        $path = $file->store('recipe_images');
+        $recipe->image = $path;
+        $recipe->is_active = $request->post('is_active', true);
+        $recipe->save();
+
+        $ingredients = Ingredient::find($request->post('ingredient_id'));
+        $recipe->ingredients()->attach($ingredients);
+
+        return redirect()->route('admin.recipes')->with('success', 'Recipe created successfully.');
+
     }
 
     public function editGet($id): View
