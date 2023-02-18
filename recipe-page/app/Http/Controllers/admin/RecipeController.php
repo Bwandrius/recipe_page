@@ -23,7 +23,7 @@ class RecipeController extends Controller
 
     public function show($id, Request $request): View
     {
-        $recipe = Recipe::find($id);
+        $recipe = Recipe::withTrashed()->find($id);
 
         if ($recipe === null) {
             abort(404,);

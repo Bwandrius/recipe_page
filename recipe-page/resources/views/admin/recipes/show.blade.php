@@ -3,6 +3,9 @@
 @section('content')
 
     <h1>{{ $recipe->name }}</h1>
+    <h5>
+        @if($recipe->deleted_at) DELETED/DISABLED @endif
+    </h5>
     <br>
 
     <div class="container">

@@ -19,7 +19,13 @@ class CategoryController extends Controller
 
     public function show($id): View
     {
-        return view('admin/categories/show');
+        $category = Category::withTrashed()->find($id);
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        return view('admin/categories/show', compact('category'));
     }
 
     public function createGet()
