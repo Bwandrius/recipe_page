@@ -28,13 +28,20 @@ class CategoryController extends Controller
         return view('admin/categories/show', compact('category'));
     }
 
-    public function createGet()
+    public function createGet(): View
     {
-
+        return view('admin/categories/create');
     }
-    public function createPost()
+    public function createPost(Request $request): RedirectResponse
     {
+        $request->validate([ 'name' => 'required|min:3|max:50' ]);
 
+        $category = Category::create($request->all());
+        $category->name = $request->post('name');
+        $category->is_active = $request->post('is_active', true);
+        $category->save();
+
+        return redirect()->route('admin.categories')->with('success', 'Category created successfully.');
     }
 
     public function editGet($id): View
