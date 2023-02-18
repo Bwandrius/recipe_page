@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\RecipeController as AdminRecipeController;
 use App\Http\Controllers\admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\admin\IngredientController as AdminIngredientController;
 
 use App\Http\Controllers\public\HomeController;
 use App\Http\Controllers\public\RecipeController;
@@ -48,3 +49,12 @@ Route::get('admin/category/show/{id}', [AdminCategoryController::class, 'show'])
 Route::get('admin/category/edit/{id}', [AdminCategoryController::class, 'editGet'])->name('admin.category.edit.get');
 Route::post('admin/category/edit/{id}', [AdminCategoryController::class, 'editPost'])->name('admin.category.edit.post');
 Route::delete('admin/category/delete/{id}', [AdminCategoryController::class, 'delete'])->name('admin.category.delete');
+
+
+Route::get('admin/ingredients', [AdminIngredientController::class, 'index'])->name('admin.ingredients');
+Route::get('admin/ingredient/create', [AdminIngredientController::class, 'createGet'])->name('admin.ingredient.create.get');
+Route::post('admin/ingredient/create', [AdminIngredientController::class, 'createPost'])->name('admin.ingredient.create.post');
+Route::get('admin/ingredient/show/{id}', [AdminIngredientController::class, 'show'])->name('admin.ingredient.page');
+Route::get('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editGet'])->name('admin.ingredient.edit.get');
+Route::post('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editPost'])->name('admin.ingredient.edit.post');
+Route::delete('admin/ingredient/delete/{id}', [AdminIngredientController::class, 'delete'])->name('admin.ingredient.delete');

@@ -32,6 +32,11 @@ class IngredientController extends Controller
     }
     public function editPost()
     {
-        
+
+    }
+
+    public function delete()
+    {
+
     }
 }
