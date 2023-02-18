@@ -70,7 +70,7 @@ class RecipeController extends Controller
 
     public function editGet($id): View
     {
-        $recipe = Recipe::find($id);
+        $recipe = Recipe::withTrashed()->find($id);
         $categories = Category::all();
         $ingredients = Ingredient::all();
 
@@ -78,7 +78,7 @@ class RecipeController extends Controller
     }
     public function editPost($id, Request $request)
     {
-        $recipe = Recipe::find($id);
+        $recipe = Recipe::withTrashed()->find($id);
 
         if($recipe === null)
         {

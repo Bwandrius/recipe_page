@@ -3,6 +3,9 @@
 @section('content')
 
     <h1>Edit {{ $recipe->name }} Recipe</h1>
+    <h5>
+        @if($recipe->deleted_at) DELETED/DISABLED @endif
+    </h5>
     <br>
 
     <form method="POST" action="{{ route('admin.recipe.edit.post', ['id' => $recipe->id]) }}">

@@ -37,12 +37,33 @@ class CategoryController extends Controller
 
     }
 
-    public function editGet(): View
+    public function editGet($id): View
     {
-        return view('admin/categories/edit');
+        $category = Category::withTrashed()->find($id);
+
+        return view('admin/categories/edit', compact('category'));
     }
-    public function editPost()
+    public function editPost($id, Request $request): RedirectResponse
     {
+        $category = Category::withTrashed()->find($id);
+
+        if($category === null)
+        {
+            abort(404);
+        }
+
+        if($request->isMethod('post')){
+            $request->validate([ 'name' => 'required|min:3|max:50']);
+
+
+        }
+
+        $category->name = $request->input('name');
+        $category->is_active = $request->post('is_active', true);
+        $category->save();
+
+        return redirect()->route('admin.categories')->with('success', 'Category updated successfully.');
+
 
     }
 
