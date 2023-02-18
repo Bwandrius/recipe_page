@@ -8,6 +8,7 @@ use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Validation\Rules\File;
 
@@ -55,6 +56,7 @@ class RecipeController extends Controller
 
         $file = $request->file('image');
         $path = $file->store('recipe_images');
+        Storage::disk('public')->put('container', $file);
         $recipe->image = $path;
         $recipe->is_active = $request->post('is_active', true);
         $recipe->save();

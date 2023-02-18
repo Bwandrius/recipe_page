@@ -2,28 +2,18 @@
 @section('title', 'admin-create-recipe')
 @section('content')
 
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-
+    <h1>Create a new recipe</h1>
 
     <form method="POST" action="{{ route('admin.recipe.create.post') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                   id="name" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group">
             <label for="category">Category</label>
-            <select class="form-control" id="category" name="category_id">
+            <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }} {{old('category_id')}}">
                         {{ $category->name }}
@@ -34,7 +24,7 @@
 
         <div class="form-group">
             <label for="ingredients">Ingredients</label>
-            <select name="ingredient_id[]" class="form-control" style="height: 200px;" multiple>
+            <select name="ingredient_id[]" class="form-control @error('ingredient_id[]') is-invalid @enderror" style="height: 250px;" multiple>
                 @foreach($ingredients as $ingredient)
                     <option  value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
                 @endforeach
@@ -43,7 +33,7 @@
 
         <div class="form-group">
             <label for="image" class="form-label">Image</label>
-            <input class="form-control" type="file" name="image" value="{{ old('image') }}">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" value="{{ old('image') }}">
         </div>
 
         <div class="form-group">
