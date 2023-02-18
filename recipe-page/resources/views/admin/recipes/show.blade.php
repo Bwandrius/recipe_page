@@ -29,7 +29,12 @@
                     <div class="card-body">
                         <div>
                             <h5 class="card-title">{{ $recipe->name }}</h5>
-                            <p class="card-text">Category: {{$recipe->category->name}}</p>
+                            <p class="card-text">Category:
+                                <a class="text-decoration-none"
+                                   href="{{ route('admin.category.page', ['id' => $recipe->category->id]) }}">
+                                   {{$recipe->category->name}}
+                                </a>
+                            </p>
                         </div>
                         <br>
                         <div>
