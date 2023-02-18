@@ -35,7 +35,7 @@
                         {{ $recipe->name }}
                     </a>
                 </td>
-                <td>{{ $recipe->category->name }}</td>
+                <td>{{ $recipe->category ? $recipe->category->name : 'N/A' }}</td>
                 <td>{{$recipe->ingredients->count()}}</td>
                 <td>Image placeholder</td>
                 <td>{{ $recipe->is_active }}</td>
