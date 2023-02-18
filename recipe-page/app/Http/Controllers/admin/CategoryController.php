@@ -41,21 +41,19 @@ class CategoryController extends Controller
     {
         $category = Category::withTrashed()->find($id);
 
+        if($category === null)
+        {
+            abort(404);
+        }
+
         return view('admin/categories/edit', compact('category'));
     }
     public function editPost($id, Request $request): RedirectResponse
     {
         $category = Category::withTrashed()->find($id);
 
-        if($category === null)
-        {
-            abort(404);
-        }
-
         if($request->isMethod('post')){
             $request->validate([ 'name' => 'required|min:3|max:50']);
-
-
         }
 
         $category->name = $request->input('name');
@@ -63,8 +61,6 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect()->route('admin.categories')->with('success', 'Category updated successfully.');
-
-
     }
 
     public function delete($id): RedirectResponse

@@ -74,16 +74,16 @@ class RecipeController extends Controller
         $categories = Category::all();
         $ingredients = Ingredient::all();
 
+        if($recipe === null)
+        {
+            abort(404);
+        }
+
         return view('admin/recipes/edit', compact('recipe', 'categories', 'ingredients'));
     }
     public function editPost($id, Request $request)
     {
         $recipe = Recipe::withTrashed()->find($id);
-
-        if($recipe === null)
-        {
-            abort(404);
-        }
 
         if($request->isMethod('post')) {
             $request->validate([
