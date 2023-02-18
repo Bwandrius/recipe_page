@@ -24,10 +24,10 @@
 
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.recipes') }}">All Recipes</a>
+                    <a class="nav-link" href="{{ route('admin.recipes') }}">Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Placeholder 2</a>
+                    <a class="nav-link" href="{{ route('admin.categories') }}">Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Placeholder 3</a>

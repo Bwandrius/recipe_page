@@ -2,7 +2,7 @@
 @section('title', 'admin-single-recipes')
 @section('content')
 
-    <h1>PLACEHOLDER</h1>
+    <h1>{{ $recipe->name }}</h1>
     <br>
 
     <div class="container">
