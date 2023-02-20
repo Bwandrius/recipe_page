@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ route('admin.categories') }}">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Placeholder 3</a>
+                    <a class="nav-link" href="{{ route('admin.ingredients') }}">Ingredients</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Placeholder 4</a>

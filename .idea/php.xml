@@ -9,9 +9,127 @@
   <component name="PHPCodeSnifferOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/composer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/spatie/laravel-ignition" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/spatie/ignition" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/spatie/flare-client-php" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/spatie/backtrace" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/league/config" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/recipe-page/vendor/psr/log" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/recipe-page/vendor/autoload.php" />
+    </phpunit_settings>
   </component>
   <component name="PsalmOptionsConfiguration">
     <option name="transferred" value="true" />

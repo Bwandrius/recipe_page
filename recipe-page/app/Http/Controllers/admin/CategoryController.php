@@ -74,7 +74,7 @@ class CategoryController extends Controller
     {
         $category = Category::withTrashed()->find($id);
 
-        $category->is_active = false; // is_active turbut nereikalingas turint sofDelete
+        $category->is_active = false;
         if($category === null) { abort(404); }
 
         $category->delete();
