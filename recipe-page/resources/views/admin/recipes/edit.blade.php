@@ -49,6 +49,11 @@
             @enderror
         </div>
 
+{{--        <div class="form-group">--}}
+{{--            <label for="image" class="form-label">Image</label>--}}
+{{--            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" value="{{ old('image') }}">--}}
+{{--        </div>--}}
+
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" name="description" rows="3">{{ $recipe->description }}</textarea>

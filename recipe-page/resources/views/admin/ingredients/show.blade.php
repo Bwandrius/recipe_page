@@ -1,5 +1,5 @@
 @extends('components/admin_layout')
-@section('title', 'admin-all-ingredients')
+@section('title', 'admin-ingredient')
 @section('content')
 
     <h1>{{ $ingredient->name }}</h1>

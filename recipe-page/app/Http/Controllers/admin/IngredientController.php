@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class IngredientController extends Controller
@@ -22,6 +21,12 @@ class IngredientController extends Controller
     public function show($id)
     {
         $ingredient = Ingredient::withTrashed()->find($id);
+
+        if($ingredient === null)
+        {
+            abort(404);
+        }
+
         $recipes = Recipe::whereHas('ingredients', function($q) use ($id) {
             $q->where('ingredient_id', $id);
         })
@@ -40,13 +45,28 @@ class IngredientController extends Controller
 
     }
 
-    public function editGet()
+    public function editGet($id)
     {
+        $ingredient = Ingredient::withTrashed()->find($id);
 
+        if($ingredient === null)
+        {
+            abort(404);
+        }
+
+        return view('admin/ingredients/edit', compact('ingredient'));
     }
-    public function editPost()
+    public function editPost($id, Request $request)
     {
+        $ingredient = Ingredient::withTrashed()->find($id);
 
+        if($request->isMethod('post')){
+            $request->validate([ 'name' => 'required|min:3|max:50']);
+        }
+
+        $ingredient->name = $request->input('name');
+
+        return view('admin/ingredients/edit');
     }
 
     public function delete()

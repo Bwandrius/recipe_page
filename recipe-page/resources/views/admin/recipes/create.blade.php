@@ -4,7 +4,7 @@
 
     <h1>Create a new recipe</h1>
 
-    <form method="POST" action="{{ route('admin.recipe.create.post') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.recipe.create.form') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <label for="ingredients">Ingredients</label>
+            <label>Ingredients</label>
             <select name="ingredient_id[]" class="form-control @error('ingredient_id[]') is-invalid @enderror" style="height: 250px;" multiple>
                 @foreach($ingredients as $ingredient)
                     <option  value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>

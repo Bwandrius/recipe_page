@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.recipe.create.get') }}" class="btn btn-success">Create a new Recipe</a>
+            <a href="{{ route('admin.recipe.create.form') }}" class="btn btn-success">Create a new Recipe</a>
         </div>
     </div>
     <br>

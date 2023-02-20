@@ -14,19 +14,19 @@ use Illuminate\Validation\Rules\File;
 
 class RecipeController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
         $recipes = Recipe::withTrashed()->paginate(10);
 
         return view('admin/recipes/index', compact('recipes'));
     }
 
-    public function show($id, Request $request): View
+    public function show($id): View
     {
         $recipe = Recipe::withTrashed()->find($id);
 
         if ($recipe === null) {
-            abort(404,);
+            abort(404);
         }
 
         $ingredients = $recipe->ingredients;
@@ -44,11 +44,12 @@ class RecipeController extends Controller
     }
     public function createPost(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => 'required|min:3|max:50',
-            'category_id' => 'required',
-            'ingredient_id' => 'required',
-            'image' => ['required', File::image()->max(12 * 1024)],
+//            'category_id' => 'required',
+//            'ingredient_id' => 'required',
+//            'image' => ['required', File::image()->max(12 * 1024)],
         ]);
 
         $recipe = Recipe::create($request->all());
@@ -56,13 +57,14 @@ class RecipeController extends Controller
 
         $file = $request->file('image');
         $path = $file->store('recipe_images');
-        Storage::disk('public')->put('container', $file);
+        Storage::disk('public')->put('recipe_images', $file);
         $recipe->image = $path;
         $recipe->is_active = $request->post('is_active', true);
         $recipe->save();
 
         $ingredients = Ingredient::find($request->post('ingredient_id'));
         $recipe->ingredients()->attach($ingredients);
+
 
         return redirect()->route('admin.recipes')->with('success', 'Recipe created successfully.');
 
@@ -81,7 +83,7 @@ class RecipeController extends Controller
 
         return view('admin/recipes/edit', compact('recipe', 'categories', 'ingredients'));
     }
-    public function editPost($id, Request $request)
+    public function editPost($id, Request $request): View | RedirectResponse
     {
         $recipe = Recipe::withTrashed()->find($id);
 
@@ -117,7 +119,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::withTrashed()->find($id);
 
-        $recipe->is_active = false; // is_active turbut nereikalingas turint sofDelete
+        $recipe->is_active = false;
         if($recipe === null) { abort(404); }
 
         $recipe->delete();
