@@ -3,6 +3,17 @@
 @section('content')
 
     <h1>Create a new recipe</h1>
+    <br>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form method="POST" action="{{ route('admin.recipe.create') }}" enctype="multipart/form-data">
         @csrf
@@ -23,6 +34,9 @@
                     </option>
                 @endforeach
             </select>
+            @error('category_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
@@ -32,26 +46,34 @@
                     <option  value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
                 @endforeach
             </select>
+            @error('ingredient_id[]')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="image" class="form-label">Image</label>
             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" value="{{ old('image') }}">
+            @error('image')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
             <label for="description">Description:</label>
             <textarea class="form-control" name="description" id="description" rows="4">{{ old('description') }}</textarea>
         </div>
-
         <br>
-
-        <button type="submit" class="btn btn-success">Save</button>
 
         <div class="form-group">
             <input type="checkbox" name="is_active" class="form-check-input" value="1" @if (old('is_active')) checked @endif>
             <label class="form-check-label">Active?</label>
         </div>
+        <br>
+
+        <button type="submit" class="btn btn-success">Save</button>
+
+
     </form>
 
 @endsection
