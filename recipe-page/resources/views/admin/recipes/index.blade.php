@@ -39,9 +39,13 @@
                     <td>{{$recipe->ingredients->count()}}</td>
                     <td>
                         @if($recipe->image)
-                            <img style="max-width: 50px; max-height: 50px;" src="{{ asset('storage/images/' . $recipe->image) }}" alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img style="max-width: 50px; max-height: 50px;"
+                                 src="{{ asset('storage/images/' . $recipe->image) }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @else
-                            <p>N/A</p>
+                            <img style="max-width: 50px; max-height: 50px;"
+                                 src="{{ asset('storage/images/default.jpg') }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @endif
                     </td>
                     <td>{{ $recipe->is_active }}</td>

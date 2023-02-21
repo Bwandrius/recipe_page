@@ -15,23 +15,23 @@
                     <div class="card-body ">
 
                         @if($recipe->image)
-                            <img src="{{ asset('storage/images/' . $recipe->image) }}" alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img src="{{ asset('storage/images/' . $recipe->image) }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @else
-                            <p>N/A</p>
+                            <img src="{{ asset('storage/images/default.jpg') }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @endif
-
-{{--                            asset('image/' . $recipe->image)--}}
-{{--                            asset('public/image/gvnLQnQyLT7VRv7RBozpzG8oKJm5QTlIwhH59yZ0.jpg')--}}
-{{--                            <img class="img-thumbnail" src="{{ asset($recipe->image) }}" alt="IMG">--}}
 
                         <h5 class="card-title">Item 1</h5>
                         <p class="card-text">This is the first item.</p>
                     </div>
+                    
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="card">
                     <div class="card-body">
+
                         <div>
                             <h5 class="card-title">{{ $recipe->name }}</h5>
                             <p class="card-text">Category:
@@ -42,6 +42,7 @@
                             </p>
                         </div>
                         <br>
+
                         <div>
                             <p>Ingredients:</p>
                             <ul>
@@ -50,6 +51,7 @@
                                 @endforeach
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
