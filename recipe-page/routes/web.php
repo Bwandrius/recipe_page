@@ -30,6 +30,9 @@ Route::get('/', [HomeController::class, 'index'])->name('public.homepage');
 
 Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes');
 
+/// AUTH
+
+
 
 /// ADMIN
 

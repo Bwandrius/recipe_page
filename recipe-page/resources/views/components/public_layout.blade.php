@@ -39,7 +39,7 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Placeholder 5</a>
+                            <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
 
