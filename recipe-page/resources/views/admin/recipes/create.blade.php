@@ -4,7 +4,7 @@
 
     <h1>Create a new recipe</h1>
 
-    <form method="POST" action="{{ route('admin.recipe.create.form') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.recipe.create') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>

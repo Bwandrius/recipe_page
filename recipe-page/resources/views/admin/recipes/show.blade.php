@@ -15,9 +15,10 @@
                     <div class="card-body ">
 
                         @if($recipe->image)
-                            <img class="img-thumbnail" src="{{ asset($recipe->image) }}">
+                            <img class="img-thumbnail" src="{{ asset($recipe->image) }}" alt="IMG">
+                        @else
+                            <p>N/A</p>
                         @endif
-{{--                        <img src="{{ asset('path/to/image.jpg') }}" class="card-img-top" alt="Image Description">--}}
 
                         <h5 class="card-title">Item 1</h5>
                         <p class="card-text">This is the first item.</p>

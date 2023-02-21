@@ -8,7 +8,7 @@
     </h5>
     <br>
 
-    <form method="POST" action="{{ route('admin.recipe.edit.post', ['id' => $recipe->id]) }}">
+    <form method="POST" action="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
@@ -48,11 +48,6 @@
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-
-{{--        <div class="form-group">--}}
-{{--            <label for="image" class="form-label">Image</label>--}}
-{{--            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" value="{{ old('image') }}">--}}
-{{--        </div>--}}
 
         <div class="form-group">
             <label for="description">Description</label>

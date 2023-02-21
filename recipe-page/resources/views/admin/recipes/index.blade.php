@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.recipe.create.form') }}" class="btn btn-success">Create a new Recipe</a>
+            <a href="{{ route('admin.recipe.create') }}" class="btn btn-success">Create a new Recipe</a>
         </div>
     </div>
     <br>
@@ -41,7 +41,7 @@
                     <td>{{ $recipe->is_active }}</td>
 
                     <td>
-                        <a href="{{ route('admin.recipe.edit.get', ['id' => $recipe->id]) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-info">Edit</a>
                     </td>
 
                     <td>
