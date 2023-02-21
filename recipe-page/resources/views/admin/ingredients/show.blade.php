@@ -5,6 +5,11 @@
     <h1>{{ $ingredient->name }}</h1>
     <br>
 
+    @if($ingredient->is_active === false)
+        <h5>DELETED/DEACTIVATED</h5>
+        <br>
+    @endif
+
     <table class="table table-success table-striped">
         <thead>
             <th scope="col">#</th>

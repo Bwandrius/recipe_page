@@ -12,6 +12,8 @@ class Ingredient extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = ['name'];
+
     public function recipes(): BelongsToMany
     {
         return $this->belongsToMany(

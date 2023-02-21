@@ -52,8 +52,8 @@ Route::delete('admin/category/delete/{id}', [AdminCategoryController::class, 'de
 
 
 Route::get('admin/ingredients', [AdminIngredientController::class, 'index'])->name('admin.ingredients');
-Route::get('admin/ingredient/create', [AdminIngredientController::class, 'createGet'])->name('admin.ingredient.create.get');
-Route::post('admin/ingredient/create', [AdminIngredientController::class, 'createPost'])->name('admin.ingredient.create.post');
+Route::get('admin/ingredient/create', [AdminIngredientController::class, 'createGet'])->name('admin.ingredient.create');
+Route::post('admin/ingredient/create', [AdminIngredientController::class, 'createPost']);
 Route::get('admin/ingredient/show/{id}', [AdminIngredientController::class, 'show'])->name('admin.ingredient.page');
 Route::get('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editGet'])->name('admin.ingredient.edit');
 Route::post('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editPost']);

@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.ingredient.create.get') }}" class="btn btn-success">Create a new Ingredient</a>
+            <a href="{{ route('admin.ingredient.create') }}" class="btn btn-success">Create a new Ingredient</a>
         </div>
     </div>
     <br>
@@ -28,7 +28,8 @@
                     <th scope="row">{{ $ingredient->id }}</th>
 
                     <td>
-                        <a class="text-decoration-none" href="{{ route('admin.ingredient.page', ['id' => $ingredient->id]) }}">
+                        <a class="text-decoration-none"
+                           href="{{ route('admin.ingredient.page', ['id' => $ingredient->id]) }}">
                             {{ $ingredient->name }}
                         </a>
                     </td>
@@ -36,7 +37,8 @@
                     <td>{{$ingredient->is_active}}</td>
 
                     <td>
-                        <a href="{{ route('admin.ingredient.edit', ['id' => $ingredient->id]) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('admin.ingredient.edit', ['id' => $ingredient->id]) }}"
+                           class="btn btn-info">Edit</a>
                     </td>
 
                     <td>
