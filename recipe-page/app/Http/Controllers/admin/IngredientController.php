@@ -65,8 +65,9 @@ class IngredientController extends Controller
         }
 
         $ingredient->name = $request->input('name');
+        $ingredient->save();
 
-        return view('admin/ingredients/edit');
+        return redirect()->route('admin.ingredients')->with('success', 'Ingredient updated successfully.');
     }
 
     public function delete()

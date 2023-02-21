@@ -36,7 +36,7 @@
                     <td>{{$ingredient->is_active}}</td>
 
                     <td>
-                        <a href="{{ route('admin.ingredient.edit.get', ['id' => $ingredient->id]) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('admin.ingredient.edit', ['id' => $ingredient->id]) }}" class="btn btn-info">Edit</a>
                     </td>
 
                     <td>
