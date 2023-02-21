@@ -37,7 +37,13 @@
                     </td>
                     <td>{{ $recipe->category ? $recipe->category->name : 'N/A' }}</td>
                     <td>{{$recipe->ingredients->count()}}</td>
-                    <td>Image placeholder</td>
+                    <td>
+                        @if($recipe->image)
+                            <img style="max-width: 50px; max-height: 50px;" src="{{ asset('storage/images/' . $recipe->image) }}" alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                        @else
+                            <p>N/A</p>
+                        @endif
+                    </td>
                     <td>{{ $recipe->is_active }}</td>
 
                     <td>

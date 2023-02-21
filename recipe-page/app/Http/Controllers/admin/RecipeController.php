@@ -56,7 +56,7 @@ class RecipeController extends Controller
 
 
         $file = $request->file('image');
-        $path = $file->store('recipe_images');
+        $path = $file->store('images');
 //        Storage::disk('public')->put('recipe_images', $file);
         $recipe->image = $path;
         $recipe->is_active = $request->post('is_active', true);
@@ -83,20 +83,17 @@ class RecipeController extends Controller
 
         return view('admin/recipes/edit', compact('recipe', 'categories', 'ingredients'));
     }
-    public function editPost($id, Request $request): View | RedirectResponse
+    public function editPost($id, Request $request): RedirectResponse
     {
-
         $recipe = Recipe::withTrashed()->find($id);
 
-        if($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
             $request->validate([
                 'name' => 'required|min:3|max:50',
                 'category_id' => 'required',
                 'ingredient_id' => 'required|array',
                 'image' => [File::image()->max(256 * 1024)]
             ]);
-
-
         }
 
         $recipe->name = $request->input('name');
@@ -104,21 +101,22 @@ class RecipeController extends Controller
         $recipe->description = $request->input('description');
 
         $file = $request->file('image');
-        if($recipe->image) {
-            $recipe->image->delete();
+        if ($file) {
+            if ($recipe->image && file_exists(public_path('storage/' . $recipe->image))) {
+                unlink(public_path('storage/' . $recipe->image));
+            }
+
+            $path = $file->store('public/images');
+            $imageName = basename($path);
+            $recipe->image = $imageName;
         }
-        $path = $file->store('recipe_images');
-        $recipe->image = $path;
 
         $recipe->is_active = $request->post('is_active', true);
-
 
         $selectedIngredients = $request->input('ingredient_id', []);
         $recipe->ingredients()->sync($selectedIngredients);
 
         $recipe->save();
-
-        dd($recipe);
 
         return redirect()->route('admin.recipes')->with('success', 'Recipe updated successfully.');
     }
