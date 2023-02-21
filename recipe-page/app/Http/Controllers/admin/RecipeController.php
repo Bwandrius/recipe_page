@@ -47,24 +47,24 @@ class RecipeController extends Controller
 
         $request->validate([
             'name' => 'required|min:3|max:50',
-//            'category_id' => 'required',
-//            'ingredient_id' => 'required',
-//            'image' => ['required', File::image()->max(12 * 1024)],
+            'category_id' => 'required',
+            'ingredient_id' => 'required',
+            'image' => [File::image()->max(256 * 1024)],
         ]);
 
         $recipe = Recipe::create($request->all());
 
-
         $file = $request->file('image');
-        $path = $file->store('images');
-//        Storage::disk('public')->put('recipe_images', $file);
-        $recipe->image = $path;
+        $path = $file->store('public/images');
+        $imageName = basename($path);
+        $recipe->image = $imageName;
+
         $recipe->is_active = $request->post('is_active', true);
-        $recipe->save();
 
         $ingredients = Ingredient::find($request->post('ingredient_id'));
         $recipe->ingredients()->attach($ingredients);
 
+        $recipe->save();
 
         return redirect()->route('admin.recipes')->with('success', 'Recipe created successfully.');
 

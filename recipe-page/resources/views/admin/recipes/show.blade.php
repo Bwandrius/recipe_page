@@ -25,7 +25,7 @@
                         <h5 class="card-title">Item 1</h5>
                         <p class="card-text">This is the first item.</p>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-12 col-md-6">
