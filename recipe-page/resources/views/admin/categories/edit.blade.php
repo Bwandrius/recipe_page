@@ -10,7 +10,7 @@
     </h5>
     <br>
 
-    <form method="POST" action="{{ route('admin.category.edit.post', ['id' => $category->id]) }}">
+    <form method="POST" action="{{ route('admin.category.edit', ['id' => $category->id]) }}">
         @csrf
 
         <div class="form-group">

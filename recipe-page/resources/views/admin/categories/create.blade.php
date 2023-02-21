@@ -7,7 +7,7 @@
     <h1>Create a new Category</h1>
     <br>
 
-    <form method="POST" action="{{ route('admin.category.create.post') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.category.create') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">

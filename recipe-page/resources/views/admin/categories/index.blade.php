@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="{{ route('admin.category.create.get') }}" class="btn btn-success">Create a new Category</a>
+            <a href="{{ route('admin.category.create') }}" class="btn btn-success">Create a new Category</a>
         </div>
     </div>
     <br>
@@ -39,7 +39,7 @@
                 <td>{{ $category->is_active }}</td>
 
                 <td>
-                    <a href="{{ route('admin.category.edit.get', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>
+                    <a href="{{ route('admin.category.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>
                 </td>
 
                 <td>

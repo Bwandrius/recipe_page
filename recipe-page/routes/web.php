@@ -43,11 +43,11 @@ Route::delete('admin/recipe/delete/{id}', [AdminRecipeController::class, 'delete
 
 
 Route::get('admin/categories', [AdminCategoryController::class, 'index'])->name('admin.categories');
-Route::get('admin/category/create', [AdminCategoryController::class, 'createGet'])->name('admin.category.create.get');
-Route::post('admin/category/create', [AdminCategoryController::class, 'createPost'])->name('admin.category.create.post');
+Route::get('admin/category/create', [AdminCategoryController::class, 'createGet'])->name('admin.category.create');
+Route::post('admin/category/create', [AdminCategoryController::class, 'createPost']);
 Route::get('admin/category/show/{id}', [AdminCategoryController::class, 'show'])->name('admin.category.page');
-Route::get('admin/category/edit/{id}', [AdminCategoryController::class, 'editGet'])->name('admin.category.edit.get');
-Route::post('admin/category/edit/{id}', [AdminCategoryController::class, 'editPost'])->name('admin.category.edit.post');
+Route::get('admin/category/edit/{id}', [AdminCategoryController::class, 'editGet'])->name('admin.category.edit');
+Route::post('admin/category/edit/{id}', [AdminCategoryController::class, 'editPost']);
 Route::delete('admin/category/delete/{id}', [AdminCategoryController::class, 'delete'])->name('admin.category.delete');
 
 
