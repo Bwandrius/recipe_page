@@ -20,7 +20,8 @@
         </div>
 
         <div class="form-group">
-            <input type="checkbox" name="is_active" class="form-check-input" value="1" @if (old('is_active')) checked @endif>
+            <input type="checkbox" name="is_active" class="form-check-input"
+                   value="1" @if (old('is_active')) checked @endif>
             <label class="form-check-label">Active?</label>
         </div>
         <br>

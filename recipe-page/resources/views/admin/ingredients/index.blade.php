@@ -3,6 +3,7 @@
 @section('content')
 
     <h1>Ingredients/Admin</h1>
+    <br>
 
     @include('components.alert.success_message')
 

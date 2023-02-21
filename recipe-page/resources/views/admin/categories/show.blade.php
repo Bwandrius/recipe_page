@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1>{{ $category->name }}</h1>
+    <h1>Recipes in {{ $category->name }} category</h1>
     <h5>
         @if($category->deleted_at) DELETED/DISABLED @endif
     </h5>
@@ -18,12 +18,17 @@
                     <div class="card h-100">
 
                         @if($recipe->image)
-                            <img class="img-thumbnail" class="card-img-top" src="{{ asset($recipe->image) }}">
+                            <img class="img-thumbnail card-img-top" src="{{ asset($recipe->image) }}" alt="IMG">
                         @endif
 
                         <div class="card-body">
 
-                            <h5 class="card-title" > <a class="text-decoration-none" href="{{ route('admin.recipe.page', ['id' => $recipe->id]) }}">{{ $recipe->name }}</a></h5>
+                            <h5 class="card-title" >
+                                <a class="text-decoration-none"
+                                   href="{{ route('admin.recipe.page', ['id' => $recipe->id]) }}">
+                                    {{ $recipe->name }}
+                                </a>
+                            </h5>
 
                             @foreach($recipe->ingredients as $ingredient)
                                 <p class="card-text">{{ $ingredient->name }}</p>

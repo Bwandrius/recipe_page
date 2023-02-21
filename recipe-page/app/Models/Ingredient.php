@@ -29,7 +29,7 @@ class Ingredient extends Model
         return $this->hasMany(RecipeIngredient::class);
     }
 
-    public function getRecipeCountAttribute()
+    public function getRecipeCountAttribute(): int
     {
         return $this->RecipeIngredients()->count();
     }
