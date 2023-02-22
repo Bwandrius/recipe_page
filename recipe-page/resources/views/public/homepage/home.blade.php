@@ -42,7 +42,7 @@
         <div class="row">
             @foreach($recipes as $recipe)
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card text-white" style="opacity: 0.5; background-image: url('{{ $recipe->image ? asset('storage/images/' . $recipe->image) : asset('storage/images/default.jpg') }}'); background-size: cover;">
+                    <div class="card" style="background-image: url('{{ $recipe->image ? asset('storage/images/' . $recipe->image) : asset('storage/images/default.jpg') }}'); background-size: cover;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
