@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 4px double lightslategray;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Gluttonous</a>
+            <a class="navbar-brand" href="{{ route('public.homepage') }}">Gluttonous</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,9 @@
                     @endauth
 
                     @guest()
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Register</a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Login</a>
                         </li>

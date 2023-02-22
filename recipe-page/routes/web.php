@@ -46,6 +46,7 @@ Route::get('logout', [AuthController::class, 'logout'])
 /// USER
 
 Route::get('profile', [UserController::class, 'show'])
+    ->middleware(['auth'])
     ->name('user.profile');
 
 /// ADMIN
