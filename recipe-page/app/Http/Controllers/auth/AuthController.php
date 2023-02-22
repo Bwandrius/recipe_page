@@ -32,4 +32,15 @@ class AuthController extends Controller
 
         return back()->withErrors(['email' => 'Invalid data provided']);
     }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+
+        return redirect('/');
+    }
 }

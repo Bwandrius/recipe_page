@@ -38,7 +38,14 @@
                 <ul class="navbar-nav ms-auto">
                     @auth()
                         <li class="nav-item">
-                            <a href="{{ url('profile') }}" class="nav-link" aria-current="page" href="#">{{ auth()->user()->name }} Profile</a>
+                            <a href="{{ route('user.profile') }}" class="nav-link" aria-current="page" href="#">
+                                {{ auth()->user()->name }} Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            @if(auth()->user()->role == 'admin')
+                                <a href="{{ route('admin.recipes') }}" class="nav-link" aria-current="page">ADMIN CONTROLS</a>
+                            @endif
                         </li>
                     @endauth
 

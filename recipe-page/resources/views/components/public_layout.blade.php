@@ -13,7 +13,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 4px double lightslategray;">
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="{{ url('/') }}">Gluttonous</a>
