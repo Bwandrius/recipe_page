@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\RecipeController as AdminRecipeController;
 use App\Http\Controllers\admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\admin\IngredientController as AdminIngredientController;
 
+use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\public\HomeController;
 use App\Http\Controllers\public\RecipeController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,10 @@ Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes'
 
 /// AUTH
 
-
+Route::middleware(['guest'])->group(function() {
+    Route::get('login', [AuthController::class, 'loginGet'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticateLogin'])->name('authenticate');
+});
 
 /// ADMIN
 

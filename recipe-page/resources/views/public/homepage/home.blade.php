@@ -1,4 +1,4 @@
-@extends('components/public_layout')
+@extends('components/home_page_layout')
 @section('title', 'Gluttonous')
 @section('content')
 
