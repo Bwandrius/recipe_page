@@ -50,7 +50,10 @@
                 <select name="ingredient_id[]" class="form-control" style="height: 250px; width: 200px; margin-right: 30px;" multiple>
                     @if($recipe->ingredients)
                         @foreach($recipe->ingredients as $ingredient)
-                            <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
+                            <option value="{{ $ingredient->id }}"
+                                {{ $recipe->ingredients->contains('id', $ingredient->id) ? 'selected' : '' }}>
+                                {{ $ingredient->name }}
+                            </option>
                         @endforeach
                     @endif
                     @foreach($ingredients as $ingredient)
@@ -68,8 +71,6 @@
                 </ul>
             </div>
 
-
-
         </div>
 
         <div class="form-group">
@@ -80,11 +81,15 @@
         </div>
         <br>
 
-        @if($recipe->image)
-            <img class="img-thumbnail" src="{{ asset($recipe->image) }}" alt="IMG">
-        @else
-            <p>NO IMAGE</p>
-        @endif
+        <div class="form-group">
+            @if($recipe->image)
+                <img src="{{ asset('storage/images/' . $recipe->image) }}"
+                     style="max-height: 250px;"
+                     alt="{{ $recipe->name }}" class="img-fluid mb-2">
+            @else
+                <p>NO IMAGE</p>
+            @endif
+        </div>
 
         <div class="form-group">
             <label for="image" class="form-label">Image</label>
