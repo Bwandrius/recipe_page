@@ -57,7 +57,7 @@
 
                     @guest()
                         <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Register</a>
+                            <a href="{{ route('user.registration') }}" class="nav-link" aria-current="page" href="#">Register</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Login</a>

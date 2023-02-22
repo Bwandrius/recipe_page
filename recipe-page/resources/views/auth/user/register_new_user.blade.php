@@ -2,6 +2,17 @@
 @section('title', 'Login')
 @section('content')
 
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -9,7 +20,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('user.registration') }}">
                             @csrf
 
                             <div class="mb-3">

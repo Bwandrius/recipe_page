@@ -1,6 +1,8 @@
 @extends('components/min_layout')
 @section('title', 'Login')
 @section('content')
+
+    @include('components.alert.success_message')
 <br>
 <div class="container">
     <div class="row justify-content-center">

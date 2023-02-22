@@ -49,6 +49,9 @@ Route::get('profile', [UserController::class, 'show'])
     ->middleware(['auth'])
     ->name('user.profile');
 
+Route::get('register', [UserController::class, 'registerGet'])->name('user.registration');
+Route::post('register', [UserController::class, 'registerPost']);
+
 /// ADMIN
 
 Route::middleware(['auth', 'role'])->group(function () {
