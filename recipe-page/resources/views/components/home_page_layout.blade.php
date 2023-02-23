@@ -51,9 +51,14 @@
 
                     @auth()
                         <li class="nav-item">
-                            <a href="{{ url('logout') }}" class="nav-link" aria-current="page" href="#">Logout</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-link" aria-current="page">Logout</button>
+                            </form>
                         </li>
                     @endauth
+
+                        {{--                                <a href="" class="nav-link" aria-current="page" href="#">Logout</a>--}}
 
                     @guest()
                         <li class="nav-item">

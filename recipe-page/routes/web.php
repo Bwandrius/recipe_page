@@ -39,7 +39,7 @@ Route::middleware(['guest'])->group(function() {
     Route::post('login', [AuthController::class, 'authenticateLogin'])->name('authenticate');
 });
 
-Route::get('logout', [AuthController::class, 'logout'])
+Route::post('logout', [AuthController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
 
