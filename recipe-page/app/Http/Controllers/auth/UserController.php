@@ -40,4 +40,37 @@ class UserController extends Controller
         return redirect('login')
             ->with('success', 'User created successfully!');
     }
+
+    public function changePasswordGet(): View
+    {
+        return view('auth/user/change_password');
+    }
+    public function changePasswordPost(Request $request)
+    {
+        // validate the request data
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        // get the currently authenticated user
+        $user = Auth::user();
+
+        // verify that the current password is correct
+        if (!Hash::check($validatedData['current_password'], $user->password)) {
+            return response()->json(['message' => 'Incorrect current password'], 400);
+        }
+
+        // hash the new password
+        $newPassword = Hash::make($validatedData['new_password']);
+
+        // update the user's password
+        $user->password = $newPassword;
+        $user->save();
+
+        return redirect('profile')
+            ->with('success', 'Password changed successfully!');
+    }
+
 }

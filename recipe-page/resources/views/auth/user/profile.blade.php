@@ -1,7 +1,8 @@
 @extends('components/home_page_layout')
 @section('title', 'User Profile')
 @section('content')
-
+    <br>
+    @include('components.alert.success_message')
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto mt-5">
@@ -35,7 +36,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="#" class="btn btn-primary">Change Password</a>
+                                <a href="{{ route('user.change.password') }}" class="btn btn-primary">Change Password</a>
                             </div>
                         </div>
                     </div>

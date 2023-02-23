@@ -52,6 +52,9 @@ Route::get('profile', [UserController::class, 'show'])
 Route::get('register', [UserController::class, 'registerGet'])->name('user.registration');
 Route::post('register', [UserController::class, 'registerPost']);
 
+Route::get('change-password', [UserController::class, 'changePasswordGet'])->name('user.change.password');
+Route::post('change-password', [UserController::class, 'changePasswordPost']);
+
 /// ADMIN
 
 Route::middleware(['auth', 'role'])->group(function () {

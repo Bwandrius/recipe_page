@@ -1,5 +1,5 @@
 @extends('components/min_layout')
-@section('title', 'Login')
+@section('title', 'Register')
 @section('content')
 
     @if($errors->any())
