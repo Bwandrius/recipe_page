@@ -18,7 +18,7 @@ class UserRole
     {
         // check if user role is Admin
         if(!$this->isAdmin($request)){
-            abort(403, 'NO FRUIT');
+            return redirect()->route('login');
         }
 
         Log::channel('role_channel')->info('middleware', ['request' => $request->all()]);

@@ -20,7 +20,7 @@ class RecipeController extends Controller
     {
         $recipes = Recipe::paginate(18);
 
-        return view('public/recipes/show', compact('recipes'));
+        return view('public/recipes/index', compact('recipes'));
     }
 
     public function show($id)
@@ -31,6 +31,6 @@ class RecipeController extends Controller
             abort(404);
         }
 
-        return view('public/recipes/show_one', compact('recipe'));
+        return view('public/recipes/show', compact('recipe'));
     }
 }
