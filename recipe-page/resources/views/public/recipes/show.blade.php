@@ -18,7 +18,13 @@
                         <div class="card-body" style="min-height: 200px;">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <h5 class="card-title">{{ $recipe->name }}</h5>
+                                    <h5 class="card-title">
+                                        <a class="text-decoration-none"
+                                           href="{{ route('public.single.recipe', ['id' => $recipe->id]) }}">
+                                            {{$recipe->category->name}}
+                                        </a>
+                                        {{ $recipe->name }}
+                                    </h5>
                                 </div>
                                 <div class="col-md-4">
                                     <h5>{{ $recipe->category->name ?? 'No category' }}</h5>

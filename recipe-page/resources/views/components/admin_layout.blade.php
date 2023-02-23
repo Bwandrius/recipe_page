@@ -37,9 +37,34 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Placeholder 5</a>
-                </li>
+
+                @auth()
+                    <li class="nav-item">
+                        <a href="{{ route('user.profile') }}" class="nav-link" aria-current="page" href="#">
+                            {{ auth()->user()->name }} Profile
+                        </a>
+                    </li>
+                @endauth
+
+                @auth()
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-link" aria-current="page">Logout</button>
+                        </form>
+                    </li>
+                @endauth
+
+                @guest()
+                    <li class="nav-item">
+                        <a href="{{ route('user.registration') }}" class="nav-link" aria-current="page" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Login</a>
+                    </li>
+                @endguest
+
+
             </ul>
 
         </div>

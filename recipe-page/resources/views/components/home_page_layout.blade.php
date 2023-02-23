@@ -58,8 +58,6 @@
                         </li>
                     @endauth
 
-                        {{--                                <a href="" class="nav-link" aria-current="page" href="#">Logout</a>--}}
-
                     @guest()
                         <li class="nav-item">
                             <a href="{{ route('user.registration') }}" class="nav-link" aria-current="page" href="#">Register</a>
