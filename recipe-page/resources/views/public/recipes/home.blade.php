@@ -8,7 +8,7 @@
     <div class="container" style="margin-top: 2vh;">
         <div class="row">
             @foreach($recipes as $recipe)
-                <div class="col-md-6 col-lg-4 mb-4">
+                <div class="col-md-5 col-lg-4 mb-4">
                     <div class="card">
                         @if($recipe->image)
                             <img class="card-img-top" style="max-height: 190px;"
@@ -26,7 +26,10 @@
                                     <h5>{{ $recipe->category->name }}</h5>
                                 </div>
                             </div>
-                            <p class="card-text">{{ substr($recipe->description, 0, 100) }}{{ strlen($recipe->description) > 100 ? "..." : "" }}</p>
+                            <p class="card-text">
+                                {{ substr($recipe->description, 0, 100) }}
+                                {{ strlen($recipe->description) > 100 ? "..." : "" }}
+                            </p>
                         </div>
                     </div>
                 </div>

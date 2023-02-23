@@ -13,7 +13,7 @@ class RecipeController extends Controller
 {
     public function home(): View
     {
-        $recipes = Recipe::latest('created_at')->take(10)->get();
+        $recipes = Recipe::latest('created_at')->take(9)->get();
 
         return view('public/recipes/home', compact('recipes'));
     }
@@ -21,17 +21,19 @@ class RecipeController extends Controller
     public function index(Request $request): View
     {
         $recipes = Recipe::query();
-        $categories = Category::all();
-        $ingredients = Ingredient::all();
+        $categories = Category::where('is_active', '=', 1)->get();
 
         if ($request->query('category_id')) {
             $recipes->where('category_id', '=', $request->query('category_id'));
         }
 
+        if ($request->query('name')) {
+            $recipes->where('name', 'like', '%' . $request->query('name') . '%');
+        }
+
         return view('public/recipes/index', [
             'recipes' => $recipes->paginate(18),
-            'categories' => $categories,
-            'ingredients' => $ingredients
+            'categories' => $categories
         ]);
     }
 

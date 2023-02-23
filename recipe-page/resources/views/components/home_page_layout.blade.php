@@ -24,15 +24,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('public.all.recipes') }}">All Recipes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Placeholder</a>
-                    </li>
-                    <li>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </li>
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
@@ -44,7 +35,9 @@
                         </li>
                         <li class="nav-item">
                             @if(auth()->user()->role == 'admin')
-                                <a href="{{ route('admin.recipes') }}" class="nav-link" aria-current="page">ADMIN CONTROLS</a>
+                                <a href="{{ route('admin.recipes') }}" class="nav-link" aria-current="page">
+                                    ADMIN CONTROLS
+                                </a>
                             @endif
                         </li>
                     @endauth
@@ -60,7 +53,9 @@
 
                     @guest()
                         <li class="nav-item">
-                            <a href="{{ route('user.registration') }}" class="nav-link" aria-current="page" href="#">Register</a>
+                            <a href="{{ route('user.registration') }}" class="nav-link" aria-current="page" href="#">
+                                Register
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link" aria-current="page" href="#">Login</a>
