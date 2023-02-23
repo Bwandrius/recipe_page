@@ -22,12 +22,12 @@
                                 <div class="col-md-8">
                                     <h5 class="card-title">{{ $recipe->name }}</h5>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <h5>{{ $recipe->category->name }}</h5>
                                 </div>
                             </div>
                             <p class="card-text">
-                                {{ substr($recipe->description, 0, 100) }}
+                                {{ substr($recipe->description, 0, 30) }}
                                 {{ strlen($recipe->description) > 100 ? "..." : "" }}
                             </p>
                         </div>

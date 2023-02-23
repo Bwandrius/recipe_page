@@ -13,7 +13,7 @@ class RecipeController extends Controller
 {
     public function home(): View
     {
-        $recipes = Recipe::latest('created_at')->take(9)->get();
+        $recipes = Recipe::latest('created_at')->take(10)->get();
 
         return view('public/recipes/home', compact('recipes'));
     }
@@ -32,7 +32,7 @@ class RecipeController extends Controller
         }
 
         return view('public/recipes/index', [
-            'recipes' => $recipes->paginate(18),
+            'recipes' => $recipes->paginate(20),
             'categories' => $categories
         ]);
     }
