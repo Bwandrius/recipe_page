@@ -1,4 +1,4 @@
-@extends('components/home_page_layout')
+@extends('components.home_page_layout')
 @section('title', 'Gluttonous')
 @section('content')
 
@@ -13,7 +13,8 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card">
                         @if($recipe->image)
-                            <img class="card-img-top" style="max-height: 250px;" src="{{ 'storage/images/' . $recipe->image }}" alt="{{ $recipe->name }}">
+                            <img class="card-img-top" style="max-height: 250px;"
+                                 src="{{ 'storage/images/' . $recipe->image }}" alt="{{ $recipe->name }}">
                         @else
                             <img src="{{ asset('storage/images/default.jpg') }}"
                                  alt="{{ $recipe->name }}" class="img-fluid mb-2">
@@ -42,7 +43,8 @@
         <div class="row">
             @foreach($recipes as $recipe)
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card" style="background-image: url('{{ $recipe->image ? asset('storage/images/' . $recipe->image) : asset('storage/images/default.jpg') }}'); background-size: cover;">
+                    <div class="card"
+                         style="background-image: url('{{ $recipe->image ? asset('storage/images/' . $recipe->image) : asset('storage/images/default.jpg') }}'); background-size: cover;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
@@ -59,8 +61,5 @@
             @endforeach
         </div>
     </div>
-
-
-
 
 @endsection

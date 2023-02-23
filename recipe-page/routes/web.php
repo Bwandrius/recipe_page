@@ -27,10 +27,9 @@ use Illuminate\Support\Facades\Route;
 
 /// PUBLIC
 
-Route::get('/', [HomeController::class, 'index'])->name('public.homepage');
+Route::get('/', [RecipeController::class, 'index'])->name('public.homepage');
 
-
-Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes');
+Route::get('recipes', [RecipeController::class, 'showAll'])->name('public.all.recipes');
 
 /// AUTH
 
