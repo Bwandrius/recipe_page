@@ -35,8 +35,10 @@ Route::get('recipes', [RecipeController::class, 'index'])->name('public.recipes'
 /// AUTH
 
 Route::middleware(['guest'])->group(function() {
-    Route::get('login', [AuthController::class, 'loginGet'])->name('login');
-    Route::post('login', [AuthController::class, 'authenticateLogin'])->name('authenticate');
+    Route::get('login', [AuthController::class, 'loginGet'])
+        ->name('login');
+    Route::post('login', [AuthController::class, 'authenticateLogin'])
+        ->name('authenticate');
 });
 
 Route::post('logout', [AuthController::class, 'logout'])
@@ -45,15 +47,20 @@ Route::post('logout', [AuthController::class, 'logout'])
 
 /// USER
 
-Route::get('profile', [UserController::class, 'show'])
-    ->middleware(['auth'])
-    ->name('user.profile');
+Route::middleware(['auth'])->group(function () {
+    Route::get('profile', [UserController::class, 'show'])
+        ->name('user.profile');
 
-Route::get('register', [UserController::class, 'registerGet'])->name('user.registration');
-Route::post('register', [UserController::class, 'registerPost']);
+    Route::get('change-password', [UserController::class, 'changePasswordGet'])
+        ->name('user.change.password');
+    Route::post('change-password', [UserController::class, 'changePasswordPost']);
+});
 
-Route::get('change-password', [UserController::class, 'changePasswordGet'])->name('user.change.password');
-Route::post('change-password', [UserController::class, 'changePasswordPost']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('register', [UserController::class, 'registerGet'])
+        ->name('user.registration');
+    Route::post('register', [UserController::class, 'registerPost']);
+});
 
 /// ADMIN
 
