@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\public;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -16,14 +18,24 @@ class RecipeController extends Controller
         return view('public/recipes/home', compact('recipes'));
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $recipes = Recipe::paginate(18);
+        $recipes = Recipe::query();
+        $categories = Category::all();
+        $ingredients = Ingredient::all();
 
-        return view('public/recipes/index', compact('recipes'));
+        if ($request->query('category_id')) {
+            $recipes->where('category_id', '=', $request->query('category_id'));
+        }
+
+        return view('public/recipes/index', [
+            'recipes' => $recipes->paginate(18),
+            'categories' => $categories,
+            'ingredients' => $ingredients
+        ]);
     }
 
-    public function show($id)
+    public function show($id): View
     {
         $recipe = Recipe::find($id);
 

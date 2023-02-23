@@ -3,20 +3,40 @@
 @section('content')
 
 
+    <form method="GET" action="{{ route('public.all.recipes') }}">
+        @csrf
+        <!-- Category filter -->
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="category_id" id="category" class="form-control">
+                <option value="">-- All Categories --</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </form>
+
+
+
+
+
     <div class="container" style="margin-top: 2vh;">
         <div class="row">
             @foreach($recipes as $recipe)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card">
                         @if($recipe->image)
-                            <img class="card-img-top" style="max-height: 250px;"
+                            <img class="card-img-top" style="max-height: 190px;"
                                  src="{{ 'storage/images/' . $recipe->image }}" alt="{{ $recipe->name }}">
                         @else
                             <img src="{{ asset('storage/images/default.jpg') }}"
                                  alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @endif
-                        <div class="card-body" style="min-height: 200px;">
-                            <div class="row">
+                        <div class="card-body" style="min-height: 220px;">
+                            <div class="col">
                                 <div class="col-md-8">
                                     <h5 class="card-title">
                                         <a class="text-decoration-none"
@@ -25,7 +45,7 @@
                                         </a>
                                     </h5>
                                 </div>
-                                <div class="col-md-4">
+                                <div >
                                     <h5>{{ $recipe->category->name ?? 'No category' }}</h5>
                                 </div>
                             </div>
