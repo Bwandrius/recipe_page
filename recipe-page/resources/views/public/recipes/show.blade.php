@@ -7,14 +7,16 @@
         <div class="row mt-4">
             <div class="col-12 col-md-6">
                 <div class="card">
-                    <div class="card-img-container" style="max-height: 100%;">
+                    <div class="card-img-container text-center" style="max-height: 100%;">
 
                         @if($recipe->image)
-                            <img src="{{ asset('storage/images/' . $recipe->image) }}"
-                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img class="img-fluid mb-2" style="max-height: 400px; border-radius: 5px; margin-top: 8px;"
+                                 src="{{ asset('storage/images/' . $recipe->image) }}"
+                                 alt="{{ $recipe->name }}">
                         @else
-                            <img src="{{ asset('storage/images/default.jpg') }}"
-                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img class="img-fluid mb-2" style="max-height: 400px; border-radius: 5px; margin-top: 8px;"
+                                 src="{{ asset('storage/images/default.jpg') }}"
+                                 alt="{{ $recipe->name }}">
                         @endif
 
                     </div>
