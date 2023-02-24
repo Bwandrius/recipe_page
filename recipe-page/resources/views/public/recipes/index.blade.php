@@ -29,33 +29,28 @@
     <div class="container" style="margin-top: 2vh;">
         <div class="row">
             @foreach($recipes as $recipe)
-                <div class="col-md-6 col-lg-4 mb-4">
+                <div class="col-md-6 col-lg-3 mb-4">
                     <div class="card">
                         @if($recipe->image)
-                            <img class="card-img-top" style="max-height: 190px;"
+                            <img class="img-fluid mb-2" style="max-height: 190px; margin: 10px; border-radius: 5px;"
                                  src="{{ 'storage/images/' . $recipe->image }}" alt="{{ $recipe->name }}">
                         @else
-                            <img src="{{ asset('storage/images/default.jpg') }}"
-                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img class="img-fluid mb-2" style="max-height: 190px; margin: 10px; border-radius: 5px;"
+                                src="{{ asset('storage/images/default.jpg') }}" alt="{{ $recipe->name }}" >
                         @endif
-                        <div class="card-body" style="min-height: 220px;">
+                        <div class="card-body" style="min-height: 170px; position: relative;">
                             <div class="col">
                                 <div class="col-md-8">
-                                    <h5 class="card-title">
-                                        <a class="text-decoration-none"
-                                           href="{{ route('public.single.recipe', ['id' => $recipe->id]) }}">
-                                            {{$recipe->name}}
-                                        </a>
-                                    </h5>
+                                    <h5 class="card-title">{{ $recipe->name }}</h5>
                                 </div>
                                 <div >
                                     <h5>{{ $recipe->category->name ?? 'No category' }}</h5>
                                 </div>
                             </div>
-                            <p class="card-text">
-                                {{ substr($recipe->description, 0, 50) }}
-                                {{ strlen($recipe->description) > 100 ? "..." : "" }}
-                            </p>
+                            <a href="{{ route('public.single.recipe', ['id' => $recipe->id]) }}"
+                               style="position: absolute; bottom: 10px">
+                                <h5>link</h5>
+                            </a>
                         </div>
                     </div>
                 </div>

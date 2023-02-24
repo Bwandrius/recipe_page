@@ -7,7 +7,7 @@
         <div class="row mt-4">
             <div class="col-12 col-md-6">
                 <div class="card">
-                    <div class="card-img-container" style="height: 100%;">
+                    <div class="card-img-container" style="max-height: 100%;">
 
                         @if($recipe->image)
                             <img src="{{ asset('storage/images/' . $recipe->image) }}"
