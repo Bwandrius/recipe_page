@@ -6,7 +6,6 @@ use App\Http\Controllers\admin\IngredientController as AdminIngredientController
 
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\UserController;
-use App\Http\Controllers\public\HomeController;
 use App\Http\Controllers\public\RecipeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,40 +20,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 /// PUBLIC
 
-Route::get('/', [RecipeController::class, 'home'])->name('public.homepage');
-
-Route::get('recipes', [RecipeController::class, 'index'])->name('public.all.recipes');
-
-Route::get('recipe/{id}', [RecipeController::class, 'show'])->name('public.single.recipe');
-
-/// AUTH
-
-Route::middleware(['guest'])->group(function() {
-    Route::get('login', [AuthController::class, 'loginGet'])
-        ->name('login');
-    Route::post('login', [AuthController::class, 'authenticateLogin'])
-        ->name('authenticate');
+Route::controller(RecipeController::class)->group(function () {
+    Route::get('/', 'home')->name('public.homepage');
+    Route::get('recipes', 'index')->name('public.all.recipes');
+    Route::get('recipe/{id}', 'show')->name('public.single.recipe');
 });
 
-Route::post('logout', [AuthController::class, 'logout'])
-    ->middleware(['auth'])
-    ->name('logout');
+/// AUTH:
 
-/// USER
+Route::controller(AuthController::class)->group(function () {
+
+    Route::middleware(['guest'])->group(function() {
+        Route::get('login', 'loginGet')->name('login');
+        Route::post('login', 'authenticateLogin')->name('authenticate');
+    });
+
+    Route::middleware(['auth'])->group(function () {
+        Route::post('logout', 'logout')->name('logout');
+    });
+});
+
+/// USER:
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('profile', [UserController::class, 'show'])
-        ->name('user.profile');
-
-    Route::get('change-password', [UserController::class, 'changePasswordGet'])
-        ->name('user.change.password');
-    Route::post('change-password', [UserController::class, 'changePasswordPost']);
+    Route::controller(UserController::class)->group(function () {
+        Route::get('profile', 'show')->name('user.profile');
+        Route::get('change-password', 'changePasswordGet')->name('user.change.password');
+        Route::post('change-password', 'changePasswordPost');
+    });
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -63,50 +58,41 @@ Route::middleware(['guest'])->group(function () {
     Route::post('register', [UserController::class, 'registerPost']);
 });
 
-/// ADMIN
+/// ADMIN:
 
 Route::middleware(['auth', 'role'])->group(function () {
-    Route::get('admin/recipes', [AdminRecipeController::class, 'index'])
-        ->name('admin.recipes');
-    Route::get('admin/recipe/create', [AdminRecipeController::class, 'createGet'])
-        ->name('admin.recipe.create');
-    Route::post('admin/recipe/create', [AdminRecipeController::class, 'createPost']);
-    Route::get('admin/recipe/{id}', [AdminRecipeController::class, 'show'])
-        ->name('admin.recipe.page');
-    Route::get('admin/recipe/edit/{id}', [AdminRecipeController::class, 'editGet'])
-        ->name('admin.recipe.edit');
-    Route::post('admin/recipe/edit/{id}', [AdminRecipeController::class, 'editPost']);
-    Route::delete('admin/recipe/delete/{id}', [AdminRecipeController::class, 'delete'])
-        ->name('admin.recipe.delete');
 
+    Route::controller(AdminRecipeController::class)->group(function () {
+        Route::get('admin/recipes', 'index')->name('admin.recipes');
+        Route::get('admin/recipe/create', 'createGet')->name('admin.recipe.create');
+        Route::post('admin/recipe/create', 'createPost');
+        Route::get('admin/recipe/{id}', 'show')->name('admin.recipe.page');
+        Route::get('admin/recipe/edit/{id}','editGet')->name('admin.recipe.edit');
+        Route::post('admin/recipe/edit/{id}', 'editPost');
+        Route::delete('admin/recipe/delete/{id}', 'delete')->name('admin.recipe.delete');
+    });
 
-    Route::get('admin/categories', [AdminCategoryController::class, 'index'])
-        ->name('admin.categories');
-    Route::get('admin/category/create', [AdminCategoryController::class, 'createGet'])
-        ->name('admin.category.create');
-    Route::post('admin/category/create', [AdminCategoryController::class, 'createPost']);
-    Route::get('admin/category/show/{id}', [AdminCategoryController::class, 'show'])
-        ->name('admin.category.page');
-    Route::get('admin/category/edit/{id}', [AdminCategoryController::class, 'editGet'])
-        ->name('admin.category.edit');
-    Route::post('admin/category/edit/{id}', [AdminCategoryController::class, 'editPost']);
-    Route::delete('admin/category/delete/{id}', [AdminCategoryController::class, 'delete'])
-        ->name('admin.category.delete');
+    Route::controller(AdminCategoryController::class)->group(function () {
+        Route::get('admin/categories',  'index')->name('admin.categories');
+        Route::get('admin/category/create', 'createGet')->name('admin.category.create');
+        Route::post('admin/category/create', 'createPost');
+        Route::get('admin/category/show/{id}', 'show')->name('admin.category.page');
+        Route::get('admin/category/edit/{id}', 'editGet')->name('admin.category.edit');
+        Route::post('admin/category/edit/{id}', 'editPost');
+        Route::delete('admin/category/delete/{id}', 'delete')->name('admin.category.delete');
+    });
 
-
-    Route::get('admin/ingredients', [AdminIngredientController::class, 'index'])
-        ->name('admin.ingredients');
-    Route::get('admin/ingredient/create', [AdminIngredientController::class, 'createGet'])
-        ->name('admin.ingredient.create');
-    Route::post('admin/ingredient/create', [AdminIngredientController::class, 'createPost']);
-    Route::get('admin/ingredient/show/{id}', [AdminIngredientController::class, 'show'])
-        ->name('admin.ingredient.page');
-    Route::get('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editGet'])
-        ->name('admin.ingredient.edit');
-    Route::post('admin/ingredient/edit/{id}', [AdminIngredientController::class, 'editPost']);
-    Route::delete('admin/ingredient/delete/{id}', [AdminIngredientController::class, 'delete'])
-        ->name('admin.ingredient.delete');
+    Route::controller(AdminIngredientController::class)->group(function () {
+        Route::get('admin/ingredients', 'index')->name('admin.ingredients');
+        Route::get('admin/ingredient/create', 'createGet')->name('admin.ingredient.create');
+        Route::post('admin/ingredient/create', 'createPost');
+        Route::get('admin/ingredient/show/{id}', 'show')->name('admin.ingredient.page');
+        Route::get('admin/ingredient/edit/{id}', 'editGet')->name('admin.ingredient.edit');
+        Route::post('admin/ingredient/edit/{id}', 'editPost');
+        Route::delete('admin/ingredient/delete/{id}', 'delete')->name('admin.ingredient.delete');
+    });
 });
+
 
 
 

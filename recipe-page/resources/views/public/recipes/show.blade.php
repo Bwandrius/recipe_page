@@ -7,7 +7,7 @@
         <div class="row mt-4">
             <div class="col-12 col-md-6">
                 <div class="card">
-                    <div class="card-img-container text-center" style="max-height: 100%;">
+                    <div class="card-img-container text-center" style="max-height: 100%; background-color: #e5e7eb">
 
                         @if($recipe->image)
                             <img class="img-fluid mb-2" style="max-height: 400px; border-radius: 5px; margin-top: 8px;"
