@@ -15,11 +15,11 @@
                     <div class="card-body ">
 
                         @if($recipe->image)
-                            <img src="{{ asset('storage/images/' . $recipe->image) }}"
-                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img class="img-fluid mb-2" style="max-height: 190px; margin: 10px; border-radius: 5px;"
+                                 src="{{ 'storage/images/' . $recipe->image }}" alt="{{ $recipe->name }}">
                         @else
-                            <img src="{{ asset('storage/images/default.jpg') }}"
-                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                            <img class="img-fluid mb-2" style="max-height: 190px; margin: 10px; border-radius: 5px;"
+                                 src="{{ asset('storage/images/default.jpg') }}" alt="{{ $recipe->name }}" >
                         @endif
 
                         <h5 class="card-title">Item 1</h5>

@@ -18,7 +18,11 @@
                     <div class="card h-100">
 
                         @if($recipe->image)
-                            <img class="img-thumbnail card-img-top" src="{{ asset($recipe->image) }}" alt="IMG">
+                            <img src="{{ asset('storage/images/' . $recipe->image) }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
+                        @else
+                            <img src="{{ asset('storage/images/default.jpg') }}"
+                                 alt="{{ $recipe->name }}" class="img-fluid mb-2">
                         @endif
 
                         <div class="card-body">
