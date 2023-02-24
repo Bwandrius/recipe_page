@@ -21,9 +21,7 @@ class CategoryController extends Controller
     {
         $category = Category::withTrashed()->find($id);
 
-        if ($category === null) {
-            abort(404);
-        }
+        if ($category === null) { abort(404); }
 
         return view('admin/categories/show', compact('category'));
     }
@@ -48,10 +46,7 @@ class CategoryController extends Controller
     {
         $category = Category::withTrashed()->find($id);
 
-        if($category === null)
-        {
-            abort(404);
-        }
+        if($category === null) { abort(404); }
 
         return view('admin/categories/edit', compact('category'));
     }
