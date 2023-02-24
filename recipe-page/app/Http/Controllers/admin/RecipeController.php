@@ -25,9 +25,7 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::withTrashed()->find($id);
 
-        if ($recipe === null) {
-            abort(404);
-        }
+        if ($recipe === null) { abort(404); }
 
         $ingredients = $recipe->ingredients;
 
@@ -44,7 +42,6 @@ class RecipeController extends Controller
     }
     public function createPost(Request $request): RedirectResponse
     {
-
         $request->validate([
             'name' => 'required|min:3|max:50',
             'category_id' => 'required',
@@ -76,10 +73,7 @@ class RecipeController extends Controller
         $categories = Category::all();
         $ingredients = Ingredient::all();
 
-        if($recipe === null)
-        {
-            abort(404);
-        }
+        if($recipe === null) { abort(404); }
 
         return view('admin/recipes/edit', compact('recipe', 'categories', 'ingredients'));
     }
