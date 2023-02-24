@@ -1,5 +1,5 @@
 @extends('components/admin_layout')
-@section('title', 'admin-all-ingredients')
+@section('title', 'admin-create-ingredient')
 @section('content')
 
     <h1>Create Ingredient/Admin</h1>
