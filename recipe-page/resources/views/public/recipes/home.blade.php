@@ -3,7 +3,10 @@
 @section('content')
 
 
-    <br>
+    <div style="text-align: center; margin-top: 20px;">
+        <h1>10 latest recipes</h1>
+    </div>
+    <hr>
 
     <div class="container" style="margin-top: 2vh;">
         <div class="row">
