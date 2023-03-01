@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\IngredientController as AdminIngredientController
 
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\UserController;
+use App\Http\Controllers\public\HomeController;
 use App\Http\Controllers\public\RecipeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 /// PUBLIC
 
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('public.homepage');
+});
+
 Route::controller(RecipeController::class)->group(function () {
-    Route::get('/', 'home')->name('public.homepage');
     Route::get('recipes', 'index')->name('public.all.recipes');
     Route::get('recipe/{id}', 'show')->name('public.single.recipe');
 });
