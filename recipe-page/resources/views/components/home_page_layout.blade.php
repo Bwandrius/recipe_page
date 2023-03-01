@@ -27,6 +27,7 @@
                 </ul>
 
                 <ul class="navbar-nav ms-auto">
+
                     @auth()
                         <li class="nav-item">
                             <a href="{{ route('user.profile') }}" class="nav-link" aria-current="page" href="#">
@@ -63,7 +64,6 @@
                     @endguest
 
                 </ul>
-
             </div>
         </div>
     </nav>

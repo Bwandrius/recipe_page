@@ -14,11 +14,20 @@ use Illuminate\Validation\Rules\File;
 
 class RecipeController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $recipes = Recipe::withTrashed()->paginate(10);
+        $categories = Category::withTrashed()->get();
 
-        return view('admin/recipes/index', compact('recipes'));
+        if ($request->query('category_id')) {
+            $recipes->where('category_id', '=', $request->query('category_id'));
+        }
+
+        if ($request->query('name')) {
+            $recipes->where('name', 'like', '%' . $request->query('name') . '%');
+        }
+
+        return view('admin/recipes/index', compact('recipes', 'categories'));
     }
 
     public function show($id): View

@@ -6,6 +6,29 @@
     <br>
     @include('components.alert.success_message')
 
+    <form method="GET" action="{{ route('public.all.recipes') }}">
+        @csrf
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select name="category_id" id="category" class="form-control">
+                <option value="">-- All Categories --</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" >Recipe name:</label>
+            <input @if($recipes)  @endif type="text" name="name" class="form-control" placeholder="Recipe name">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </form>
+
     <div class="row">
         <div class="col">
             <a href="{{ route('admin.recipe.create') }}" class="btn btn-success">Create a new Recipe</a>
