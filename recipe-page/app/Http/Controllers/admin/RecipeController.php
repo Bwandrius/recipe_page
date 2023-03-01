@@ -17,7 +17,7 @@ class RecipeController extends Controller
     public function index(Request $request): View
     {
         $recipes = Recipe::query()->withTrashed();
-        $categories = Category::withTrashed()->get();
+        $categories = Category::withTrashed();
 
 
         if ($request->query('category_id')) {
@@ -30,7 +30,8 @@ class RecipeController extends Controller
 
         return view('admin/recipes/index', [
             'recipes' => $recipes->paginate(10),
-            'categories' => $categories
+            'categories' => $categories,
+            'request' => $request
         ]);
     }
 

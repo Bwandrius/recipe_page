@@ -11,7 +11,8 @@
             <select name="category_id" id="category" class="form-control">
                 <option value="">-- All Categories --</option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                    <option value="{{ $category->id }}" {{ (string) $category->id === (string)
+                        ($request->input('category_id') ?? old('category_id')) ? 'selected' : '' }}>
                         {{ $category->name }}
                     </option>
                 @endforeach

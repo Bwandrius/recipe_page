@@ -26,7 +26,8 @@ class RecipeController extends Controller
 
         return view('public/recipes/index', [
             'recipes' => $recipes->paginate(20),
-            'categories' => $categories
+            'categories' => $categories,
+            'request' => $request
         ]);
     }
 
