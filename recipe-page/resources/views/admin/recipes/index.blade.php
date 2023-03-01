@@ -6,7 +6,7 @@
     <br>
     @include('components.alert.success_message')
 
-    <form method="GET" action="{{ route('public.all.recipes') }}">
+    <form method="GET" action="{{ route('admin.recipes') }}">
         @csrf
 
         <div class="form-group">
