@@ -111,6 +111,7 @@
       <excludeFolder url="file://$MODULE_DIR$/recipe-page/vendor/psy/psysh" />
       <excludeFolder url="file://$MODULE_DIR$/recipe-page/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/recipe-page/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/recipe-page/vendor/phpstan/phpstan" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
