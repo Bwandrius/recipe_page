@@ -18,7 +18,7 @@ class RecipeController extends Controller
     public function index(Request $request): View
     {
         $recipes = Recipe::query()->withTrashed();
-        $categories = Category::withTrashed();
+        $categories = Category::withTrashed()->get();
 
 
         if ($request->query('category_id')) {

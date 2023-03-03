@@ -15,7 +15,8 @@
                 <option value="">-- All Categories --</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}" {{ (string) $category->id === (string)
-                        ($request->input('category_id') ?? old('category_id')) ? 'selected' : '' }}>
+                        ($request->input('category_id') ?? old('category_id')) ? 'selected' : '' }}
+                        @if($category->deleted_at) style="background-color: red;" title="Deleted" @endif>
                         {{ $category->name }}
                     </option>
                 @endforeach
