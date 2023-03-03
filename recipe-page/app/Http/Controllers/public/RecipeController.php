@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\public;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\View\View;
 
 class RecipeController extends Controller
