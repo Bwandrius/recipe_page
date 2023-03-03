@@ -31,24 +31,8 @@
                     @auth()
                         <li class="nav-item">
                             <a href="{{ route('user.profile') }}" class="nav-link" aria-current="page" href="#">
-                                {{ auth()->user()->name }} Profile
+                                User {{ auth()->user()->name }} Profile
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            @if(auth()->user()->role == 'admin')
-                                <a href="{{ route('admin.recipes') }}" class="nav-link" aria-current="page">
-                                    ADMIN CONTROLS
-                                </a>
-                            @endif
-                        </li>
-                    @endauth
-
-                    @auth()
-                        <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="btn btn-link" aria-current="page">Logout</button>
-                            </form>
                         </li>
                     @endauth
 

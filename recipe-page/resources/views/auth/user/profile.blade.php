@@ -22,7 +22,11 @@
                         <div class="row mb-3">
                             @if(auth()->user()->role == 'admin')
                                 <div class="col-sm-8">
-                                    <strong>ADMIN</strong>
+                                    <strong>
+                                        <a href="{{ route('admin.recipes') }}" class="button" aria-current="page">
+                                            ADMIN CONTROLS
+                                        </a>
+                                    </strong>
                                 </div>
                             @endif
                         </div>
@@ -34,9 +38,17 @@
                                 {{ $user->email }}
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
+                        <div style="display: flex; align-content: space-between;">
+                            <div class="col-sm-10">
                                 <a href="{{ route('user.change.password') }}" class="btn btn-primary">Change Password</a>
+                            </div>
+                            <div>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary" aria-current="page">
+                                        <strong>Logout</strong>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
